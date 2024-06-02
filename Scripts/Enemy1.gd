@@ -8,12 +8,25 @@ extends Area2D
 @onready var sprite = $Sprite2D
 
 var shoot_cooldown = false
-var rate_of_fire = 2
+var rate_of_fire = 1
 var enemy_shot = preload("res://Scenes/enemy_shot_s.tscn")
 var armor = true
+var side = true
 
 func _physics_process(delta):
 	global_position.y += speed * delta
+	if side == true:
+		global_position.x -= speed/2 * delta
+		await get_tree().create_timer(1).timeout
+		side = false
+	if side == false:
+		global_position.x += speed/2 * delta
+		await get_tree().create_timer(1).timeout
+		side = true
+	
+	
+	
+	
 
 func _process(_delta):
 	if shoot_cooldown == false:
