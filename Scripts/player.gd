@@ -4,6 +4,7 @@ var speed = 60
 
 @onready var muzzle1 = $Muzzle1
 @onready var ShotContainer = $"../ShotContainer"
+@onready var anim = $AnimatedSprite2D
 
 var shoot_cooldown := false
 var shot_scene = preload("res://Scenes/shot.tscn")
@@ -24,6 +25,13 @@ func _physics_process(_delta):
 	var direction = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 	velocity = direction * speed
 	move_and_slide()
+	
+	if velocity.x > 0:
+		anim.play("Right")
+	elif velocity.x < 0:
+		anim.play("Left")
+	else:
+		anim.play("Straight")
 	
 	$".".global_position.x = clamp($".".global_position.x, 4, 124)
 	$".".global_position.y = clamp($".".global_position.y, 21, 120)

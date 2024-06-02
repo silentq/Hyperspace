@@ -1,10 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://dke07ug8xfo0p"]
+[gd_scene load_steps=7 format=3 uid="uid://dke07ug8xfo0p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_x5i3s"]
 [ext_resource type="Texture2D" uid="uid://djb8ti370ni72" path="res://Assets/player.png" id="1_xb03x"]
+[ext_resource type="Texture2D" uid="uid://dmje7a4lvp8x0" path="res://Assets/PlayerLeft.png" id="2_6he3g"]
+[ext_resource type="Texture2D" uid="uid://dn0f62mfriuns" path="res://Assets/PlayerRight.png" id="3_iyu1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7eur"]
 size = Vector2(2, 2)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eaf3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6he3g")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iyu1e")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xb03x")
+}],
+"loop": true,
+"name": &"Straight",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(2, 2)
@@ -14,9 +43,9 @@ script = ExtResource("1_x5i3s")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_c7eur")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xb03x")
-metadata/_edit_lock_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eaf3k")
+animation = &"Right"
 
 [node name="Muzzle1" type="Marker2D" parent="."]
 position = Vector2(0.5, -4.5)
