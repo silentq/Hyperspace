@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm16y272rr1fc"]
+
+[ext_resource type="Texture2D" uid="uid://ddbk3kptd1l2m" path="res://Assets/EnemySShotpng.png" id="1_46cry"]
+[ext_resource type="Script" path="res://Scripts/enemy_shot_s.gd" id="1_bjsgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3p4p"]
+size = Vector2(1, 2)
+
+[node name="EnemyShotS" type="Area2D"]
+script = ExtResource("1_bjsgv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q3p4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_46cry")
+offset = Vector2(0.5, 0)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.05, 0.1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

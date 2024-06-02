@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmn3qlf2qriex"]
+
+[ext_resource type="FontFile" uid="uid://bd8r8bk3g3lbl" path="res://Assets/pico-8.ttf" id="1_aydbu"]
+[ext_resource type="Script" path="res://Scripts/title.gd" id="1_qxddm"]
+[ext_resource type="PackedScene" uid="uid://dmmom0c55d07" path="res://Scenes/parallax_background.tscn" id="2_w2s63"]
+[ext_resource type="Texture2D" uid="uid://rdm4dfcosfpt" path="res://Assets/Z.png" id="4_d1q3l"]
+[ext_resource type="Texture2D" uid="uid://dj81tyguqvol3" path="res://Assets/X.png" id="5_owqi2"]
+[ext_resource type="Texture2D" uid="uid://p648mr2ku76n" path="res://Assets/A.png" id="6_xfb1k"]
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_qxddm")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_w2s63")]
+
+[node name="Hyper" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 88.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.905882, 0.00392157, 0.537255, 1)
+theme_override_fonts/font = ExtResource("1_aydbu")
+theme_override_font_sizes/font_size = 24
+text = "hyper"
+
+[node name="Space" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 128.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_aydbu")
+theme_override_font_sizes/font_size = 24
+text = "space"
+
+[node name="Version" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 120.0
+offset_right = 209.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("1_aydbu")
+theme_override_font_sizes/font_size = 6
+text = "ver. 2024.06.01"
+
+[node name="Press" type="Label" parent="."]
+offset_left = 54.0
+offset_top = 80.0
+offset_right = 74.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("1_aydbu")
+theme_override_font_sizes/font_size = 6
+text = "press"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 93.0
+offset_right = 79.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("1_aydbu")
+theme_override_font_sizes/font_size = 6
+text = "/"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 71.0
+offset_top = 93.0
+offset_right = 95.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("1_aydbu")
+theme_override_font_sizes/font_size = 6
+text = "/"
+
+[node name="Z" type="Sprite2D" parent="."]
+position = Vector2(48, 96)
+texture = ExtResource("4_d1q3l")
+
+[node name="X" type="Sprite2D" parent="."]
+position = Vector2(64, 96)
+texture = ExtResource("5_owqi2")
+
+[node name="A" type="Sprite2D" parent="."]
+position = Vector2(80, 96)
+texture = ExtResource("6_xfb1k")
