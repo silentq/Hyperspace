@@ -6,6 +6,7 @@ extends Area2D
 
 @onready var muzzle = $Muzzle
 @onready var ShotContainer = $"../../ShotContainer"
+@onready var sprite = $Sprite2D
 
 var shoot_cooldown = false
 var rate_of_fire = 2
@@ -52,6 +53,9 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func take_damage(amount):
 	if armor == false:
 		hp -= amount
+		sprite.modulate = Color(10, 10, 10, 10)
+		await get_tree().create_timer(0.1).timeout
+		sprite.modulate = Color.WHITE
 	if  hp == 0:
 		die()
 	else:

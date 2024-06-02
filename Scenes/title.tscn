@@ -32,9 +32,9 @@ theme_override_font_sizes/font_size = 24
 text = "space"
 
 [node name="Version" type="Label" parent="."]
-offset_left = 64.0
+offset_left = 68.0
 offset_top = 120.0
-offset_right = 209.0
+offset_right = 213.0
 offset_bottom = 135.0
 theme_override_fonts/font = ExtResource("1_aydbu")
 theme_override_font_sizes/font_size = 6
