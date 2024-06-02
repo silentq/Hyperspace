@@ -7,31 +7,19 @@
  
  Try to survive as enemies decend inside Hyperspace!
  
- Controls
-
- Keyboard
- 
- Shoot = Spacebar
- 
- Accept = Z
- 
- Movement = Arrow Keys
- 
- PlayStation Controller
- 
- Shoot = Square
- 
- Accept = Cross
- 
- Movement = D-Pad or Left Stick
- 
- Xbox Controller
- 
- Shoot = X
- 
- Accept = A
- 
- Movement = D-Pad or Left Stick
+ Controls:<br><br>
+ Keyboard<br>
+ Shoot = Spacebar<br>
+ Accept = Z<br>
+ Movement = Arrow Keys<br><br>
+ PlayStation Controller<br>
+ Shoot = Square<br>
+ Accept = Cross<br>
+ Movement = D-Pad or Left Stick<br><br>
+ Xbox Controller<br>
+ Shoot = X<br>
+ Accept = A<br>
+ Movement = D-Pad or Left Stick<br><br>
  
  I may add more to this game in the future. Stay Tuned.
 
