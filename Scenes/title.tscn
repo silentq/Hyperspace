@@ -38,7 +38,7 @@ offset_right = 213.0
 offset_bottom = 135.0
 theme_override_fonts/font = ExtResource("1_aydbu")
 theme_override_font_sizes/font_size = 6
-text = "ver. 2024.06.01"
+text = "ver. 2024.06.02"
 
 [node name="Press" type="Label" parent="."]
 offset_left = 54.0
