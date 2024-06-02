@@ -6,7 +6,8 @@
  It was made in Godot mimicking the restrictions of the Pico-8 fantasy console.
  
  Try to survive as enemies decend inside Hyperspace!
- Controls-
+ 
+ Controls
 
  Keyboard
  Shoot = Spacebar
