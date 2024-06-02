@@ -10,18 +10,27 @@
  Controls
 
  Keyboard
+ 
  Shoot = Spacebar
+ 
  Accept = Z
+ 
  Movement = Arrow Keys
  
  PlayStation Controller
+ 
  Shoot = Square
+ 
  Accept = Cross
+ 
  Movement = D-Pad or Left Stick
  
  Xbox Controller
+ 
  Shoot = X
+ 
  Accept = A
+ 
  Movement = D-Pad or Left Stick
  
  I may add more to this game in the future. Stay Tuned.
