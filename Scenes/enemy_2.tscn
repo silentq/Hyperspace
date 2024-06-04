@@ -1,10 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhtl5lw613370"]
+[gd_scene load_steps=13 format=3 uid="uid://bhtl5lw613370"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_2.gd" id="1_f54d0"]
 [ext_resource type="Texture2D" uid="uid://2kkp1hlj3phk" path="res://Assets/Enemy2.png" id="2_qt3y8"]
+[ext_resource type="Texture2D" uid="uid://be8bbglmhkefh" path="res://Assets/explosion.png" id="3_y84lp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8aq44"]
 size = Vector2(6, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiie1"]
+atlas = ExtResource("2_qt3y8")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx070"]
+atlas = ExtResource("3_y84lp")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmvl7"]
+atlas = ExtResource("3_y84lp")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmu2e"]
+atlas = ExtResource("3_y84lp")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uorl4"]
+atlas = ExtResource("3_y84lp")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxat4"]
+atlas = ExtResource("3_y84lp")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2krsl"]
+atlas = ExtResource("3_y84lp")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5a7aw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiie1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx070")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmvl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmu2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uorl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxat4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2krsl")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 5.0
+}]
 
 [node name="enemy_2" type="Area2D" groups=["enemy"]]
 scale = Vector2(2, 2)
@@ -13,16 +76,19 @@ script = ExtResource("1_f54d0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_8aq44")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_qt3y8")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5a7aw")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(0, 2)
+metadata/_edit_lock_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-1.49012e-08, -5)
 scale = Vector2(0.275, 0.1)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

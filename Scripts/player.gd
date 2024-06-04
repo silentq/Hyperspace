@@ -10,6 +10,7 @@ var shoot_cooldown := false
 var shot_scene = preload("res://Scenes/shot.tscn")
 var rate_of_fire = 0.25
 
+
 func _ready():
 	Game.Player_Present = true
 
@@ -26,11 +27,11 @@ func _physics_process(_delta):
 	velocity = direction * speed
 	move_and_slide()
 	
-	if velocity.x > 0:
+	if velocity.x > 0 and Game.Player_Present == true:
 		anim.play("Right")
-	elif velocity.x < 0:
+	elif velocity.x < 0 and Game.Player_Present == true:
 		anim.play("Left")
-	else:
+	elif Game.Player_Present == true:
 		anim.play("Straight")
 	
 	$".".global_position.x = clamp($".".global_position.x, 4, 124)
@@ -44,9 +45,17 @@ func shoot():
 func die():
 	Game.Player_Present = false
 	if Game.continues > 0:
+		set_physics_process(false)
+		$CollisionShape2D.set_deferred("disabled", true)
+		anim.play("explosion")
+		await get_tree().create_timer(0.5).timeout
 		Game.Player_Dead = true
 		queue_free()
 	if Game.continues == 0:
+		set_physics_process(false)
+		$CollisionShape2D.set_deferred("disabled", true)
+		anim.play("explosion")
+		await get_tree().create_timer(0.5).timeout
 		get_tree().change_scene_to_file.bind("res://Scenes/title.tscn").call_deferred()
 
 	

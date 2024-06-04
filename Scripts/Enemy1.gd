@@ -5,7 +5,7 @@ extends Area2D
 
 @onready var muzzle = $Muzzle
 @onready var ShotContainer = $"../../ShotContainer"
-@onready var sprite = $Sprite2D
+@onready var anim = $AnimatedSprite2D
 
 var shoot_cooldown = false
 var rate_of_fire = 1
@@ -23,10 +23,6 @@ func _physics_process(delta):
 		global_position.x += speed/2 * delta
 		await get_tree().create_timer(1).timeout
 		side = true
-	
-	
-	
-	
 
 func _process(_delta):
 	if shoot_cooldown == false:
@@ -55,10 +51,14 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func take_damage(amount):
 	if armor == false:
 		hp -= amount
-		sprite.modulate = Color(10, 10, 10, 10)
+		anim.modulate = Color(10, 10, 10, 10)
 		await get_tree().create_timer(0.1).timeout
-		sprite.modulate = Color.WHITE
+		anim.modulate = Color.WHITE
 	if  hp == 0:
+		set_physics_process(false)
+		$CollisionShape2D.set_deferred("disabled", true)
+		anim.play("explosion")
+		await get_tree().create_timer(0.5).timeout
 		die()
 	else:
 		return

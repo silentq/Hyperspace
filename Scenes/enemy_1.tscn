@@ -1,10 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://lsljqxnhqckg"]
+[gd_scene load_steps=13 format=3 uid="uid://lsljqxnhqckg"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy1.gd" id="1_rreou"]
+[ext_resource type="Texture2D" uid="uid://be8bbglmhkefh" path="res://Assets/explosion.png" id="2_kwcio"]
 [ext_resource type="Texture2D" uid="uid://byvutxrn6l1kl" path="res://Assets/Enemy1.png" id="2_l7edj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rligc"]
 size = Vector2(6, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_revj1"]
+atlas = ExtResource("2_l7edj")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4p1f"]
+atlas = ExtResource("2_kwcio")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48v50"]
+atlas = ExtResource("2_kwcio")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6tbm"]
+atlas = ExtResource("2_kwcio")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3kpi"]
+atlas = ExtResource("2_kwcio")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgf1u"]
+atlas = ExtResource("2_kwcio")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i3hx"]
+atlas = ExtResource("2_kwcio")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8fgl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_revj1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4p1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48v50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6tbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3kpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgf1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i3hx")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 5.0
+}]
 
 [node name="Enemy1" type="Area2D" groups=["enemy"]]
 scale = Vector2(2, 2)
@@ -14,8 +77,8 @@ script = ExtResource("1_rreou")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_rligc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_l7edj")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o8fgl")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(0, 2)
